@@ -6,11 +6,9 @@
 
 	onMount(() => {
 	  const messagesComponent = document.querySelector('chat-messages');
-      // set from
+      // set from and to
       messagesComponent.from = from;
       messagesComponent.to = to;
-
-      console.log(from, to)
 	});
 </script>
 
