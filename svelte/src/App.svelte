@@ -18,8 +18,6 @@
 	<ChatMessages bind:from={CURRENT_USER} bind:to={CURRENT_GROUPS[0]}></ChatMessages>
 </main>
 
-
-
 <svelte:head>
 	<script type="text/javascript" src="https://static.chatness.app/js/elements.js"></script>
 	<style>
@@ -37,4 +35,6 @@
 			}
 		}
 	</style>
+	<title>Chatness Svelte</title>
+	<link rel="icon" href="favicon.png" />
 </svelte:head>
