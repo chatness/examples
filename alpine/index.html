@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="plt-ios ios hydrated">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chatness Alpine</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <style>
+      body,
+      html {
+        overflow-y: auto !important;
+      }
+      h2.outer {
+        text-align: center;
+        margin-top: 50px;
+        display: block;
+      }
+      @media (prefers-color-scheme: dark) {
+        h2.outer {
+          color: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      x-data="{from: {
+      name: 'John Doe',
+      objectId: '5EOJTH9nUzM526vKPSVrHzp2zFP2',
+      email: 'john@doe.com',
+    }, to:  {
+      objectId: '4e1cda1f-4adf-2fce-f303-83f497ce25c9',
+      name: 'Developers',
+    } }"
+      x-init="() => {
+      const messagesComponent = document.querySelector('chat-messages');
+      // set from
+      messagesComponent.from = from;
+      messagesComponent.to = to;
+    }"
+    >
+      <h2 class="outer">Hello <span x-text="from.name"></span>!</h2>
+      <chat-messages></chat-messages>
+    </div>
+    <!-- SCRIPTS -->
+    <script
+      type="text/javascript"
+      src="https://static.chatness.app/js/elements.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"
+      defer
+    ></script>
+    <script>
+      // apply dark theme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      uiToggleDark(prefersDark.matches);
+      prefersDark.addListener((mediaQuery) => uiToggleDark(mediaQuery.matches));
+      function uiToggleDark(shouldAdd) {
+        document.body.classList.toggle('dark', shouldAdd);
+      }
+    </script>
+    <!-- /SCRIPTS -->
+  </body>
+</html>
