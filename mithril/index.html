@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="plt-ios ios hydrated">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chatness Mithril</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <style>
+      body,
+      html {
+        overflow-y: auto !important;
+      }
+      h2.outer {
+        text-align: center;
+        margin-top: 50px;
+        display: block;
+      }
+      @media (prefers-color-scheme: dark) {
+        h2.outer {
+          color: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      type="text/javascript"
+      src="https://static.chatness.app/js/elements.js"
+    ></script>
+    <script src="https://unpkg.com/mithril/mithril.js"></script>
+
+    <script>
+      const App = {
+        from: {
+          name: 'John Doe',
+          objectId: '5EOJTH9nUzM526vKPSVrHzp2zFP2',
+          email: 'john@doe.com',
+        },
+        to: {
+          objectId: '4e1cda1f-4adf-2fce-f303-83f497ce25c9',
+          name: 'Developers',
+        },
+        view: function () {
+          return m('div', [
+            m('h2.outer', `Hello ${App.from.name}!`),
+            m('chat-messages', { from: App.from, to: App.to }),
+          ]);
+        },
+        oninit: function (vnode) {
+          // apply dark theme
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+          uiToggleDark(prefersDark.matches);
+          prefersDark.addListener((mediaQuery) =>
+            uiToggleDark(mediaQuery.matches)
+          );
+          function uiToggleDark(shouldAdd) {
+            document.body.classList.toggle('dark', shouldAdd);
+          }
+        },
+      };
+      m.mount(document.body, App);
+    </script>
+  </body>
+</html>
