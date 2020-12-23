@@ -15,13 +15,6 @@ const to = {
 
 function App() {
   useEffect(() => {
-    const messagesComponent = document.querySelector('chat-messages');
-    // set from and to
-    messagesComponent.from = from;
-    messagesComponent.to = to;
-  });
-
-  useEffect(() => {
     // apply dark theme
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     uiToggleDark(prefersDark.matches);
@@ -34,7 +27,7 @@ function App() {
   return (
     <div>
       <h2 className="outer">Hello {from.name}!</h2>
-      <ChatMessages></ChatMessages>
+      <ChatMessages from={from} to={to}></ChatMessages>
     </div>
   );
 }
