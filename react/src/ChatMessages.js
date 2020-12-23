@@ -8,7 +8,7 @@ function ChatMessages(props) {
     messagesComponent.to = props.to;
   });
 
-  return <chat-messages></chat-messages>;
+  return <chat-messages />;
 }
 
 export default ChatMessages;
