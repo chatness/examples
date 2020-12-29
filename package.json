@@ -1,0 +1,43 @@
+{
+  "name": "chatness-example",
+  "version": "1.0.0",
+  "scripts": {
+    "shx": "shx",
+    "build": "npm run build:prepare && npm run build:alpine && npm run build:ember && npm run build:jquery && npm run build:mithril && npm run build:preact && npm run build:react && npm run build:stencil && npm run build:svelte && npm run build:vanilla && npm run build:vue",
+    "build:prepare": "shx rm -rf ./dist && shx mkdir ./dist && shx mkdir ./dist/alpine && shx mkdir ./dist/ember && shx mkdir ./dist/jquery && shx mkdir ./dist/mithril && shx mkdir ./dist/preact && shx mkdir ./dist/react && shx mkdir ./dist/stencil && shx mkdir ./dist/svelte && shx mkdir ./dist/vanilla && shx mkdir ./dist/vue && shx cp -rf ./.hosting/alpine/* ./dist/alpine && shx cp -rf ./.hosting/ember/* ./dist/ember && shx cp -rf ./.hosting/jquery/* ./dist/jquery && shx cp -rf ./.hosting/mithril/* ./dist/mithril && shx cp -rf ./.hosting/preact/* ./dist/preact && shx cp -rf ./.hosting/react/* ./dist/react && shx cp -rf ./.hosting/stencil/* ./dist/stencil && shx cp -rf ./.hosting/svelte/* ./dist/svelte && shx cp -rf ./.hosting/vanilla/* ./dist/vanilla && shx cp -rf ./.hosting/vue/* ./dist/vue",
+    "build:alpine": "shx cp -rf ./alpine/* ./dist/alpine/public",
+    "build:ember": "cd ./ember && npm run build && shx cp -rf ./dist/* ../dist/ember/public",
+    "build:jquery": "shx cp -rf ./jquery/* ./dist/jquery/public",
+    "build:mithril": "shx cp -rf ./mithril/* ./dist/mithril/public",
+    "build:preact": "cd ./preact && npm run build && shx cp -rf ./build/* ../dist/preact/public",
+    "build:react": "cd ./react && npm run build && shx cp -rf ./build/* ../dist/react/public",
+    "build:stencil": "cd ./stencil && npm run build && shx cp -rf ./www/* ../dist/stencil/public",
+    "build:svelte": "cd ./svelte && npm run build && shx cp -rf ./dist/* ../dist/svelte/public",
+    "build:vanilla": "shx cp -rf ./vanilla/* ./dist/vanilla/public",
+    "build:vue": "cd ./vue && npm run build && shx cp -rf ./dist/* ../dist/vue/public",
+    "deploy": "npm run deploy:alpine && npm run deploy:ember && npm run deploy:jquery && npm run deploy:mithril && npm run deploy:preact && npm run deploy:react && npm run deploy:stencil && npm run deploy:svelte && npm run deploy:vanilla && npm run deploy:vue",
+    "deploy:alpine": "cd ./dist/alpine && firebase deploy --only hosting --project getchatness",
+    "deploy:ember": "cd ./dist/ember && firebase deploy --only hosting --project getchatness",
+    "deploy:jquery": "cd ./dist/jquery && firebase deploy --only hosting --project getchatness",
+    "deploy:mithril": "cd ./dist/mithril && firebase deploy --only hosting --project getchatness",
+    "deploy:preact": "cd ./dist/preact && firebase deploy --only hosting --project getchatness",
+    "deploy:react": "cd ./dist/react && firebase deploy --only hosting --project getchatness",
+    "deploy:stencil": "cd ./dist/stencil && firebase deploy --only hosting --project getchatness",
+    "deploy:svelte": "cd ./dist/svelte && firebase deploy --only hosting --project getchatness",
+    "deploy:vanilla": "cd ./dist/vanilla && firebase deploy --only hosting --project getchatness",
+    "deploy:vue": "cd ./dist/vue && firebase deploy --only hosting --project getchatness"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatness/examples.git"
+  },
+  "author": "Stewan Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chatness/examples/issues"
+  },
+  "homepage": "https://github.com/chatness/examples#readme",
+  "devDependencies": {
+    "shx": "^0.3.3"
+  }
+}
