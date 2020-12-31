@@ -23,7 +23,7 @@
     "deploy:preact": "cd ./dist/preact && firebase deploy --only hosting --project getchatness",
     "deploy:react": "cd ./dist/react && firebase deploy --only hosting --project getchatness",
     "deploy:stencil": "cd ./dist/stencil && firebase deploy --only hosting --project getchatness",
-    "deploy:svelte": "cd ./dist/svelte && firebase deploy --only hosting --project getchatness",
+    "deploy:svelte": "shx cp ./svelte/favicon.png ./dist/svelte/public && shx cp -rf ./svelte/fonts ./dist/svelte/public && shx cp -rf ./svelte/svg ./dist/svelte/public && cd ./dist/svelte && firebase deploy --only hosting --project getchatness",
     "deploy:vanilla": "cd ./dist/vanilla && firebase deploy --only hosting --project getchatness",
     "deploy:vue": "cd ./dist/vue && firebase deploy --only hosting --project getchatness"
   },

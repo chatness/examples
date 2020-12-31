@@ -1,0 +1,2 @@
+User-Agent: *
+Sitemap: https://stencil.chatness.app/sitemap.xml

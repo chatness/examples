@@ -36,20 +36,3 @@ export default {
   },
 };
 </script>
-
-<style>
-body,
-html {
-  overflow-y: auto !important;
-}
-h2.outer {
-  text-align: center;
-  margin-top: 50px;
-  display: block;
-}
-@media (prefers-color-scheme: dark) {
-  h2.outer {
-    color: #fff;
-  }
-}
-</style>

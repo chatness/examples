@@ -1,0 +1,2 @@
+User-Agent: *
+Sitemap: https://vanilla.chatness.app/sitemap.xml

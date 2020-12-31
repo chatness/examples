@@ -31,5 +31,22 @@
       type="text/javascript"
       src="https://static.chatness.app/js/elements.js"
     ></script>
+
+    <!-- POWERED LABEL -->
+    <small
+      id="powered"
+      class="block text-center"
+      style="margin-bottom: 20px; position: fixed; bottom: 0; width: 100%"
+      >Powered by
+      <a href="https://chatness.app?utm_source=ember">Chatness</a></small
+    >
+    <script>
+      const source = new URL(location.href).searchParams.get("utm_source");
+      const hide = source === "home";
+      if (hide) {
+        document.querySelector("#powered").style.display = "none";
+      }
+    </script>
+    <!-- /POWERED LABEL -->
   </body>
 </html>

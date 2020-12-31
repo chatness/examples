@@ -1,6 +1,4 @@
 import { Component, h, Prop, Watch } from '@stencil/core';
-
-
 @Component({
   tag: 'chat-messages',
   styleUrl: 'chat-messages.css',

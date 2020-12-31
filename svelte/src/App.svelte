@@ -14,8 +14,25 @@
 </script>
 
 <main>
+
 	<h2 class="outer">Hello {CURRENT_USER.name}!</h2>
 	<ChatMessages bind:from={CURRENT_USER} bind:to={CURRENT_GROUPS[0]}></ChatMessages>
+   
+   
+   
+    <!-- POWERED LABEL -->
+    <small id="powered" class="block text-center" style="margin-bottom: 20px"
+      >Powered by
+      <a href="https://chatness.app?utm_source=svelte">Chatness</a></small
+    >
+    <script>
+      const source = new URL(location.href).searchParams.get('utm_source');
+      const hide = source === 'home';
+      if (hide) {
+        document.querySelector('#powered').style.display = 'none';
+      }
+    </script>
+    <!-- /POWERED LABEL -->
 </main>
 
 <svelte:head>
@@ -30,7 +47,7 @@
 			display: block;
 		}
 		@media (prefers-color-scheme: dark) {
-			h2.outer {
+			h2.outer, #powered {
 				color: #fff;
 			}
 		}
